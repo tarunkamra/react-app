@@ -1,0 +1,4 @@
+* @tarunkamra
+*.js @tarunkamra
+*.yml @tarunkamra
+/public/ @tarunkamra
