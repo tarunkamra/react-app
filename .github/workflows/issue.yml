@@ -11,4 +11,4 @@ jobs:
         run: |
           curl -X POST -H 'Content-type: application/json'
            -- data '{"text":"New issue created: <${{ github.event.issue.html_url }}|${{ github.event.issue.title }}.>"}' 
-           ${{ secrets.SLACK_WEBHOOK }}
+           https://hooks.slack.com/services/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
