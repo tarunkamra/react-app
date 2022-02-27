@@ -1,10 +1,11 @@
 module.exports = {
+  branches: "main",
 
-"branches": "main",
+  repositoryUrl: "https://github.com/tarunkamra/react-app",
 
-repositoryUrl: "https://github.com/tarunkamra/react-app",
-
-plugins: ['@semantic-release/commit-analyzer', '@semantic-release/release-notes-generator', '@semantic-release/github']
-
-
+  plugins: [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/github"
+  ]
 };
