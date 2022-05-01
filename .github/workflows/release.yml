@@ -1,15 +1,25 @@
-name: Notify on Release
+name: Release Charts
+
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - main
 
 jobs:
-  slack-message:
+  release:
     runs-on: ubuntu-latest
     steps:
-      - name: Slack Message
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git
         run: |
-          curl -X POST -H 'Content-type: application/json' --data '{"text":"New Release ${{ github.event.release.tag_name }} is out, <${{ github.event.release.html_url }}|check it out now>"}' ${{ secrets.SLACK_WEBHOOK }}
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
-
-
+      - name: Run chart-releaser
+        uses: helm/chart-releaser-action@v1.1.0
+        env:
+          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
