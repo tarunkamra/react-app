@@ -19,7 +19,7 @@ jobs:
         if: ${{ github.ref == 'refs/heads/develop' }}
         run: |
           echo "DEPLOYMENT=${{ secrets.DEPLOYMENT_DEV }}" >> $GITHUB_ENV
-          echo $DEPLOYMENT
+          echo $GITHUB_RUN_ID-1
         # Setting env for staging if pushed to main branch
       - name: Configuration for staging
         if: ${{ github.ref == 'refs/heads/main' && github.event_name != 'workflow_dispatch'}}
