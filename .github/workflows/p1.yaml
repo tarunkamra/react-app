@@ -19,16 +19,16 @@ jobs:
         if: ${{ github.ref == 'refs/heads/develop' }}
         run: |
           echo "DEPLOYMENT=${{ secrets.DEPLOYMENT_DEV }}" >> $GITHUB_ENV
-          echo $GITHUB_ENV dev
+          echo $DEPLOYMENT
         # Setting env for staging if pushed to main branch
       - name: Configuration for staging
         if: ${{ github.ref == 'refs/heads/main' && github.event_name != 'workflow_dispatch'}}
         run: |
           echo "DEPLOYMENT=${{ secrets.DEPLOYMENT_STG }}" >> $GITHUB_ENV
-          echo $GITHUB_ENV staging
+          echo $DEPLOYMENT
         # Setting env for production if triggered by workflow dispatch
       - name: Configuration for production
         if: ${{ github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' }}
         run: |
           echo "DEPLOYMENT=${{ secrets.DEPLOYMENT_PROD }}" >> $GITHUB_ENV
-          echo production 
+          echo $DEPLOYMENT
