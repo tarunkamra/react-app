@@ -1,0 +1,12 @@
+name: Notify on Issue
+on:
+  issues: 
+    types: [opened]
+
+jobs:
+  slack-message:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Slack Message
+        run: |
+         curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' https://hooks.slack.com/services/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
