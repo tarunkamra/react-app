@@ -24,7 +24,7 @@ jobs:
       - name: Configuration for staging
         if: ${{ github.ref == 'refs/heads/main' && github.event_name != 'workflow_dispatch'}}
         run: |
-          echo "DEPLOYMENT=${{ secrets.DEPLPYMENT_STG }}" >> $GITHUB_ENV
+          echo "DEPLOYMENT=${{ secrets.DEPLOYMENT_STG }}" >> $GITHUB_ENV
           echo $GITHUB_ENV staging
         # Setting env for production if triggered by workflow dispatch
       - name: Configuration for production
