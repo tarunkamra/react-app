@@ -31,4 +31,4 @@ jobs:
         if: ${{ github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' }}
         run: |
           echo "DEPLOYMENT=${{ secrets.DEPLOYMENT_PROD }}" >> $GITHUB_ENV
-          echo production
+          echo production 
